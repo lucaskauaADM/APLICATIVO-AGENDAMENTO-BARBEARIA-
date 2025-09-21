@@ -1,0 +1,124 @@
+/* MH Barbearia — estilo preto e dourado */
+/* Reset simples */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0b0b0b;
+  --gold:#d4af37;
+  --gold-dark:#b38e2e;
+  --white:#f7f7f7;
+  --muted:#e9e7e3;
+  --card:#111;
+  --glass: rgba(255,255,255,0.03);
+  --max-width:1100px;
+  --radius:12px;
+  --accent:#d4af37;
+  --accent-2:#d9bf55;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Layout */
+body{
+  background: linear-gradient(180deg, #060606 0%, #0b0b0b 100%);
+  color:var(--white);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+  min-height:100vh;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:24px}
+
+/* Header */
+.site-header{background:linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.2));position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,0.03)}
+.header-inner{display:flex;align-items:center;gap:16px;justify-content:space-between}
+.brand h1{color:var(--gold);font-size:20px;letter-spacing:0.5px}
+.brand .tagline{font-size:12px;color:var(--muted)}
+.main-nav a{color:var(--white);text-decoration:none;margin:0 10px;font-weight:600}
+.main-nav a:hover{color:var(--gold)}
+.cta .btn{margin-left:8px}
+
+/* Hero */
+.hero{padding:48px 0;display:flex;align-items:center}
+.hero-inner{display:flex;gap:36px;align-items:center}
+.hero-text h2{font-size:40px;margin-bottom:8px}
+.hero-text p{color:var(--muted);margin-bottom:16px}
+.hero-actions{display:flex;gap:12px}
+.hero-image{flex:1;height:220px;background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=5c6e55b2f0b1ab2c4f1b3ce6d4c9e6f6');background-size:cover;background-position:center;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+
+/* Buttons */
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.08);cursor:pointer;font-weight:700}
+.btn.large{padding:14px 22px;font-size:16px}
+.btn.gold{background:linear-gradient(180deg,var(--gold),var(--gold-dark));color:var(--black);border:none}
+.btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.1)}
+.btn:focus{outline:2px solid rgba(212,175,55,0.2)}
+
+/* Sections */
+.section{padding:40px 0}
+.lead{color:var(--muted);margin-bottom:16px}
+
+/* Steps */
+.steps{display:flex;gap:12px;margin:18px 0 8px}
+.step{background:var(--glass);padding:12px;border-radius:10px;width:80px;text-align:center;font-weight:700}
+.step small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+.step.active{background:linear-gradient(180deg,#151515,#1b1b1b);border:1px solid rgba(212,175,55,0.08);box-shadow:0 6px 18px rgba(0,0,0,0.5);color:var(--gold)}
+
+/* Cards */
+.card{background:linear-gradient(180deg,#0f0f0f, #080808);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);margin-top:16px}
+.form-card{padding:20px}
+.small-card{max-width:480px;margin:auto}
+
+/* Services & Barbers */
+.services-grid, .barbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0}
+.service, .barber{
+  background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);cursor:pointer;
+}
+.service.selected, .barber.selected{outline:3px solid rgba(212,175,55,0.12);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.service h4, .barber h4{margin-bottom:6px}
+.service p, .barber p{color:var(--muted);font-size:13px}
+
+/* Inputs */
+input[type="date"],input[type="text"],input[type="tel"],input[type="email"],input[type="password"]{
+  width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white);margin-top:8px
+}
+label{display:block;margin:8px 0;color:var(--muted);font-weight:600}
+.hidden{display:none}
+
+/* Timeslots */
+.timeslots-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.timeslot{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+.timeslot.available:hover{transform:translateY(-3px)}
+.timeslot.selected{background:linear-gradient(180deg,var(--gold),var(--gold-dark));color:var(--black);border:none}
+
+/* Horários table */
+.horarios-panel{display:flex;gap:20px;margin-top:16px}
+.panel-left{min-width:220px}
+.legend{margin-top:12px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+.legend-item{display:flex;gap:8px;align-items:center}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--gold)}
+.legend-item.pending .dot{background:orange}
+.legend-item.cancelled .dot{background:red}
+.legend-item.available .dot{background:green}
+
+.schedule-table{width:100%;border-collapse:collapse;margin-top:8px}
+.schedule-table th, .schedule-table td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.03);text-align:left}
+.schedule-table tbody tr:nth-child(even){background:rgba(255,255,255,0.01)}
+
+.status-chip{padding:6px 8px;border-radius:8px;font-size:13px}
+.status-confirm{background:rgba(212,175,55,0.12);color:var(--gold)}
+.status-pending{background:rgba(255,165,0,0.08);color:orange}
+.status-cancelled{background:rgba(255,0,0,0.06);color:#ff6b6b}
+.status-available{color:var(--muted);opacity:0.9}
+
+/* Stats */
+.stats{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.stat-card{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;min-width:120px;text-align:center}
+.stat-card h4{font-size:20px;color:var(--gold);margin-bottom:6px}
+
+/* Footer */
+.site-footer{padding:20px 0;margin-top:40px;border-top:1px solid rgba(255,255,255,0.02);text-align:center;color:var(--muted)}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-inner{flex-direction:column}
+  .horarios-panel{flex-direction:column}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:8px}
+}

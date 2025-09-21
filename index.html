@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MH Barbearia — Agendamento</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header / Navegação -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>MH Barbearia</h1>
+        <p class="tagline">Transforme seu visual com os melhores profissionais da cidade.</p>
+      </div>
+
+      <nav class="main-nav">
+        <a href="#inicio">Início</a>
+        <a href="#agendamento">Agendamento</a>
+        <a href="#horarios">Horários</a>
+        <a href="#cadastro">Cadastro</a>
+        <a href="#login">Login</a>
+      </nav>
+
+      <div class="cta">
+        <button id="open-agendar" class="btn gold">Agendar Agora</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h2>MH Barbearia</h2>
+        <p>Tradição, qualidade e estilo em cada corte.</p>
+        <div class="hero-actions">
+          <button id="hero-agendar" class="btn gold large">Agendar Agora</button>
+          <a class="btn outline" href="#horarios">Ver Horários</a>
+        </div>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Agendamento (Passo a passo 1,2,3) -->
+  <section id="agendamento" class="section container">
+    <h2>Agendar Horário</h2>
+    <p class="lead">Escolha o serviço, barbeiro e horário de sua preferência</p>
+
+    <div class="steps">
+      <div class="step active" data-step="1">1<br><small>Serviço</small></div>
+      <div class="step" data-step="2">2<br><small>Data & Hora</small></div>
+      <div class="step" data-step="3">3<br><small>Dados Pessoais</small></div>
+    </div>
+
+    <div class="card form-card">
+      <!-- Step 1: Escolha do Serviço -->
+      <form id="booking-form">
+        <div class="form-step" data-step="1">
+          <h3>Escolha o Serviço</h3>
+          <div class="services-grid" id="services-list">
+            <!-- preenchido por JS -->
+          </div>
+
+          <h3>Escolha o Barbeiro</h3>
+          <div class="barbers-grid" id="barbers-list">
+            <!-- preenchido por JS -->
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn" id="to-step-2">Próximo</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Data & Horário -->
+        <div class="form-step hidden" data-step="2">
+          <h3>Selecionar Data</h3>
+          <input type="date" id="booking-date" min="" required />
+
+          <h3>Horários disponíveis</h3>
+          <div id="timeslots" class="timeslots-grid">
+            <!-- preenchido por JS -->
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn outline" id="back-to-1">Voltar</button>
+            <button type="button" class="btn" id="to-step-3">Próximo</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Dados Pessoais -->
+        <div class="form-step hidden" data-step="3">
+          <h3>Seus Dados</h3>
+          <label>
+            Nome completo
+            <input type="text" id="customer-name" placeholder="Nome completo" required />
+          </label>
+          <label>
+            Telefone
+            <input type="tel" id="customer-phone" placeholder="(11) 99999-9999" required />
+          </label>
+          <label>
+            Email
+            <input type="email" id="customer-email" placeholder="seu@email.com" required />
+          </label>
+
+          <div class="form-actions">
+            <button type="button" class="btn outline" id="back-to-2">Voltar</button>
+            <button type="submit" class="btn gold">Agendar Horário</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="booking-msg" class="booking-msg" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- Horários -->
+  <section id="horarios" class="section container">
+    <h2>Horários de Agendamento</h2>
+    <p>Confira a disponibilidade dos nossos profissionais e agende seu horário</p>
+
+    <div class="horarios-panel">
+      <div class="panel-left">
+        <label>Selecionar Data</label>
+        <input type="date" id="calendar-date" min="" />
+        <div class="legend">
+          <span><strong>Legenda:</strong></span>
+          <span class="legend-item"><em class="dot"></em> Confirmado</span>
+          <span class="legend-item pending"><em class="dot"></em> Pendente</span>
+          <span class="legend-item cancelled"><em class="dot"></em> Cancelado</span>
+          <span class="legend-item available"><em class="dot"></em> Disponível</span>
+        </div>
+      </div>
+
+      <div class="panel-right">
+        <table class="schedule-table" id="schedule-table">
+          <thead>
+            <tr>
+              <th>Horário</th>
+              <th>Matheus Henrique</th>
+              <th>Devanil Junior</th>
+              <th>Victor Mailon</th>
+              <th>Gustavo Castilho</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <!-- preenchido por JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <h4 id="stat-confirmed">0</h4>
+        <p>Confirmados</p>
+      </div>
+      <div class="stat-card">
+        <h4 id="stat-pending">0</h4>
+        <p>Pendentes</p>
+      </div>
+      <div class="stat-card">
+        <h4 id="stat-available">0</h4>
+        <p>Disponíveis</p>
+      </div>
+      <div class="stat-card">
+        <h4 id="stat-revenue">R$ 0,00</h4>
+        <p>Faturamento do Dia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cadastro -->
+  <section id="cadastro" class="section container">
+    <h2>Criar Conta</h2>
+    <div class="card small-card">
+      <form id="register-form">
+        <label>Nome completo<input type="text" id="reg-name" required /></label>
+        <label>Telefone<input type="tel" id="reg-phone" required /></label>
+        <label>Email<input type="email" id="reg-email" required /></label>
+        <label>Senha<input type="password" id="reg-password" required /></label>
+        <label>Confirmar senha<input type="password" id="reg-password2" required /></label>
+        <div class="form-actions">
+          <button class="btn gold" type="submit">Criar Conta</button>
+        </div>
+      </form>
+      <div id="register-msg" class="booking-msg"></div>
+    </div>
+  </section>
+
+  <!-- Login -->
+  <section id="login" class="section container">
+    <h2>Entrar</h2>
+    <div class="card small-card">
+      <form id="login-form">
+        <label>Email<input type="email" id="login-email" required /></label>
+        <label>Senha<input type="password" id="login-password" required /></label>
+        <label class="checkbox"><input type="checkbox" id="remember-me" /> Lembrar-me</label>
+        <div class="form-actions">
+          <button class="btn gold" type="submit">Entrar</button>
+        </div>
+      </form>
+      <div id="login-msg" class="booking-msg"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 MH Barbearia — Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
